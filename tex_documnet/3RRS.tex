@@ -1,0 +1,94 @@
+\documentclass[a4paper,12pt]{article}
+
+% Necessary Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage[most]{tcolorbox}
+
+
+
+% Custom colors
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+% Custom commands
+\newcommand{\doibox}[1]{%
+	\vspace{-0.5cm}
+	\setlength{\fboxrule}{1pt} % Adjust thickness here (e.g., 2pt for thicker border)
+	\noindent\fcolorbox{junglegreen}{white}{%
+		\parbox{\textwidth}{%
+			\underline{\small{\textcolor{black}{\sffamily DOI: #1}} published in:} \\
+			\textcolor{junglegreen}{\textbf{\sffamily Here goes the name of the workshop - Place, 00. – 00. Month 20xx}} \\
+			\sffamily{DOI: 123456789/xxx/123456789-10}  | \sffamily{https://}
+		}
+	}
+}
+
+
+\newcommand{\customchapter}[2]{%
+	\clearpage
+	\addcontentsline{toc}{section}{#1} % Add chapter to ToC as a section
+	\begin{tcolorbox}[
+		colback=junglegreen!10, 
+		colframe=junglegreen, 
+		sharp corners, 
+		width=\textwidth, 
+		boxrule=0.5mm, 
+		enhanced, 
+		breakable
+		]
+		\Huge\bfseries\sffamily #1 \\[2mm]
+		\Large\itshape\sffamily #2
+	\end{tcolorbox}
+	\vspace{1cm}
+}
+
+% Document Starts
+\begin{document}
+	
+	% DOI box
+	\doibox{123456789/xxx/123456789-10}
+	
+	% Title
+	\begin{center}
+		\vspace{-0.3cm}
+		{\LARGE \textbf{\sffamily Developing an Intelligent Camera Platform\\ - Step-by-Step Guider -}} \\
+		\vspace{1cm}
+		{\large\sffamily Siddharth A. Patel} \\
+		\vspace{0.5cm}
+		{\normalsize \sffamily Hochschule für Technik und Wirtschaft (HTW) Berlin \\ 
+			Wilhelminenhofstraße 75A, 12459 Berlin \\ 
+			E-Mail: \texttt{siddharthpatel.de@gmail.com}}
+	\end{center}
+	
+	\newpage
+	\tableofcontents
+	
+    \customchapter{Chapter 1}{Introduction}
+
+	
+	% Section 1
+	\section{Introduction}
+	Cameras have become increasingly ubiquitous in our daily lives, whether they are positioned in public spaces, within our households, or conveniently nestled in our pockets via smartphones. They serve diverse real-world applications, including video surveillance of human activities, observing wildlife, facilitating home care, enabling optical motion capture, and enhancing multimedia experiences. 
+	
+	These applications typically entail a sequence of tasks, beginning with the detection of moving objects, followed by tracking and recognition. Over the past three decades, the field of computer vision has dedicated substantial research efforts to the task of detecting moving objects, resulting in a wealth of publications (cf.~ for a review). 
+	
+	To this end, we develop an intelligent camera tracking system suitable for the theater, dancing, and performances. The system consists of a remote PTZ camera.
+	
+	% Section 2
+	\subsection{Technical Configuration}
+	The smart camera system consists of a Panasonic AW-UE 4K camera, which allows for a pan movement denoted by \( x \) with range \( -175^\circ \leq x \leq +175^\circ \), a tilt movement denoted by \( y \) with range \( -30^\circ \leq y \leq +90^\circ \), and an optical zoom termed \( z \) with \( 1 \leq z \leq 24 \). For each of the three movement coordinates, the camera allows for adjusting the movement speed in a range from \( -50 \leq \{x, y, z\}_v \leq 50 \).
+	
+	% References Section
+	\section*{References}
+	\begin{enumerate}
+		\item Comprehensive Review on Moving Cameras, 2022.
+	\end{enumerate}
+	
+\end{document}
